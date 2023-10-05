@@ -29,7 +29,7 @@ public class FakerUserData {
     }
 
     public String getPhone() {
-        return ("7" + faker.number().randomNumber(9, true));
+        return (faker.phoneNumber().subscriberNumber(10));
     }
 
     public String getDay() {
