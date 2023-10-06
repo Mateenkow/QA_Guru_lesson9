@@ -38,7 +38,7 @@ public class FakerUserData {
 
     public String getMonth() {
         String[] month = {"August", "September", "October", "November", "December", "January",
-                "February", "Mart", "April", "May", "Jun", "July"};
+                "February", "March", "April", "May", "June", "July"};
         return (faker.options().option(month));
     }
 
