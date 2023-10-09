@@ -14,9 +14,5 @@ abstract public class BaseTest {
         Configuration.browserSize = "1920x1080";
     }
 
-    @AfterEach
-    public void tearDown() {
-        Selenide.clearBrowserCookies();
-        Selenide.closeWebDriver();
-    }
+   
 }
