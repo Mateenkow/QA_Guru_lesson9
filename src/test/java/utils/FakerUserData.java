@@ -33,7 +33,9 @@ public class FakerUserData {
     }
 
     public String getDay() {
-        return String.valueOf((faker.number().numberBetween(1, 28)));
+        String[] days = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13",
+                "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"};
+        return faker.options().option(days);
     }
 
     public String getMonth() {
@@ -43,7 +45,7 @@ public class FakerUserData {
     }
 
     public String getYear() {
-        return String.valueOf((faker.number().numberBetween(1946, 2005)));
+        return String.valueOf((faker.number().numberBetween(1940, 2005)));
     }
 
     public String getSubjects() {
