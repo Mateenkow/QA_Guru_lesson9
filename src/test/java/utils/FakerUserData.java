@@ -73,24 +73,30 @@ public class FakerUserData {
     }
 
     public String getCity(String value) {
-        return switch (value) {
-            case ("NCR") -> {
+        String result;
+        switch (value) {
+            case "NCR": {
                 String[] arrayNCR = {"Delhi", "Gurgaon", "Noida"};
-                yield faker.options().option(arrayNCR);
+                result = faker.options().option(arrayNCR);
+                break;
             }
-            case ("Uttar Pradesh") -> {
+            case "Uttar Pradesh": {
                 String[] arrayUttar = {"Agra", "Lucknow", "Merrut"};
-                yield faker.options().option(arrayUttar);
+                result = faker.options().option(arrayUttar);
+                break;
             }
-            case ("Haryana") -> {
+            case "Haryana": {
                 String[] arrayHaryana = {"Karnal", "Panipat"};
-                yield faker.options().option(arrayHaryana);
+                result = faker.options().option(arrayHaryana);
+                break;
             }
-            case ("Rajasthan") -> {
+            case "Rajasthan": {
                 String[] arrayRajasthan = {"Jaipur", "Jaiselmer"};
-                yield faker.options().option(arrayRajasthan);
+                result = faker.options().option(arrayRajasthan);
+                break;
             }
-            default -> "Not found";
+            default: result = "Not found";
         };
+        return result;
     }
 }

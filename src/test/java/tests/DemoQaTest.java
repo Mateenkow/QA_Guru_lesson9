@@ -1,19 +1,32 @@
 package tests;
 
+import com.codeborne.selenide.junit5.ScreenShooterExtension;
+import com.codeborne.selenide.junit5.TextReportExtension;
 import data.UserData;
 import driver.BaseTest;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import pages.RegistrationFormPage;
 
 /**
  * @author mateenkov
  */
 
+@ExtendWith({ScreenShooterExtension.class})
+@ExtendWith({TextReportExtension.class})
 public class DemoQaTest extends BaseTest {
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
     UserData ud = new UserData();
 
     @Test
+    @Tag("Web")
+    @Tag("UI")
+    @Owner("Ilya Mateenkov")
+    @Severity(SeverityLevel.BLOCKER)
+    @Epic("Регистрация")
+    @Feature("Проверка результатов заполнения формы регистрации")
     void registrationFormTest() {
         registrationFormPage.openPage("Student Registration Form")
                 .removeBanner()

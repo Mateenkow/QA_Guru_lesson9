@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
 import pages.components.ResultTableComponent;
 
@@ -33,6 +34,7 @@ public class RegistrationFormPage {
             subjectDropDown = $(".subjects-auto-complete__menu"),
             hobbiesWrapper = $("#hobbiesWrapper");
 
+    @Step("Проверка результаттов заполнения формы")
     public RegistrationFormPage checkTitleTableAndTableResult(String value) {
         titleResultTable.shouldHave(Condition.exactText(value));
         resultTable.shouldBe(Condition.visible);
@@ -40,6 +42,7 @@ public class RegistrationFormPage {
         return this;
     }
 
+    @Step("Открыть страницу")
     public RegistrationFormPage openPage(String title) {
         open("/automation-practice-form");
         titleForm.shouldHave(Condition.text(title));
@@ -47,6 +50,7 @@ public class RegistrationFormPage {
         return this;
     }
 
+    @Step("Удалить рекламный банер")
     public RegistrationFormPage removeBanner() {
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
@@ -54,6 +58,7 @@ public class RegistrationFormPage {
         return this;
     }
 
+    @Step("Заполнить поле тема")
     public RegistrationFormPage setSubject(String value) {
         subjectInput.setValue(value);
         subjectDropDown.$(byText(value)).click();
@@ -61,6 +66,7 @@ public class RegistrationFormPage {
         return this;
     }
 
+    @Step("Выбрать штат")
     public RegistrationFormPage setState(String state) {
         selectState.scrollTo().click();
         $(byTagAndText("div", state)).click();
@@ -68,6 +74,7 @@ public class RegistrationFormPage {
         return this;
     }
 
+    @Step("Выбрать город")
     public RegistrationFormPage setCity(String city) {
         selectCity.scrollTo().click();
         $(byTagAndText("div", city)).click();
@@ -75,70 +82,72 @@ public class RegistrationFormPage {
         return this;
     }
 
+    @Step("Загрузить изображение")
     public RegistrationFormPage uploadPicture(String value) {
         uploadPicture.uploadFromClasspath(value);
 
         return this;
     }
 
+    @Step("Заполнить поле адрес")
     public RegistrationFormPage setAddress(String address) {
         inputAddress.setValue(address);
 
         return this;
     }
 
+    @Step("Выбрать хобби")
     public RegistrationFormPage setHobbies(String value) {
         hobbiesWrapper.$(byText(value)).click();
 
         return this;
     }
-
+    @Step("Нажать кнопку подтвердить")
     public RegistrationFormPage pressSubmit() {
         buttonSubmit.scrollTo().click();
 
         return this;
     }
-
+    @Step("Заполнить поле email")
     public RegistrationFormPage setEmailUser(String value) {
         emailInput.setValue(value);
 
         return this;
     }
-
+    @Step("Заполнить поле Имя")
     public RegistrationFormPage setFirstName(String value) {
         firstNameInput.setValue(value);
 
         return this;
     }
-
+    @Step("Заполнить поле Фамилия")
     public RegistrationFormPage setLastName(String value) {
         lastnameInput.setValue(value);
 
         return this;
     }
-
+    @Step("Выбрать гендер")
     public RegistrationFormPage setGender(String value) {
         genderWrapper.$(byTagAndText("label", value)).click();
 
         return this;
     }
-
+    @Step("Заполнить поле номер телефона")
     public RegistrationFormPage setNumberPhone(String value) {
         numberInput.setValue(value);
 
         return this;
     }
-
+    @Step("Задать дату рождения")
     public RegistrationFormPage setDateBirth(String day, String month, String year) {
         $("#dateOfBirthInput").click();
         calendarComponent.setDateBirth(day, month, year);
 
         return this;
     }
-
+    @Step("Проверка результата")
     public RegistrationFormPage checkResults(String key, String value) {
         resultTableComponent.checkResult(key, value);
-
         return this;
     }
 }
